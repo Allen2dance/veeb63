@@ -1,26 +1,51 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <%- include ("../partials/header.ejs") %>
-</head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Matkaklubi</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="klubi.css">
+    </head>
+    <body>
+        <div class="paiskonteiner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 logonimi">
+                        <a class="navbar-brand" href="/">
+                            <img src="./Pildid/klubilogo.png" alt="logo" style="width:65px;">
+                        </a>
+                        <div class="nimi">MATKA KLUBI</div>
+                    </div> 
 
-<body>
+                    <%- include ("../partials/matkamenyy.ejs") %>
 
-  <%- include ("../partials/nav.ejs") %>
-
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="/lang-logo.png">
-    </a>
-    <h1>Jarjekordne katse herokuga labi  Node.js</h1>
-    <p>Vaatame, mis ssiis seekord juhtub.</p>
-    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs"><span class="glyphicon glyphicon-flash"></span> Getting Started on Heroku with Node.js</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-  </div>
-</div>
-
-
-
-</body>
-</html>
+                </div>
+                <div class="row tiitliriba">
+                    <div class="col-12 col-lg-6 pealkirjad">
+                        <div class="rida1 d-flex justify-content-between">
+                            <h2>Liiguta ennast</h2>
+                            <img class="liblikas1 img-fluid" src="./Pildid/Butterfly.png" alt="liblikas">
+                        </div>
+                        <div class="rida2 d-flex">
+                        <img class="liblikas2" src="Pildid/Butterfly 1@2x.png" alt="liblikas">
+                        <h1>Tule matkama</h1>
+                    </div>
+                        <div class="rida3">
+                            <h3>Tule koos meiega seiklema</h3>
+                        </div>
+                        <a href="/kontakt" class="btn btn-dark" role="button">Võta ühendust</a>
+                    </div>
+                    <div class="d-none d-lg-block col-lg-6 pealispilt">
+                        <img class="matkaja" src="Pildid/Tydruk kotiga 1.png" alt="naine matkal">
+                        <img class="vari" src="Pildid/Vari1.png" alt="vari">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </body>
+    </html>
