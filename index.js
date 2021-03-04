@@ -32,6 +32,10 @@ let koikMatkad = [
   }
 ]
 
+function matkaleRegistreerunud(RegExp, res) {
+  res.send(`mittemidagi`)
+}
+
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
