@@ -32,6 +32,10 @@ let koikMatkad = [
   }
 ]
 
+function matkaleRegistreerunud(RegExp, res) {
+  res.send(`mittemidagi`)
+}
+
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
@@ -39,4 +43,5 @@ express()
   .get('/', function(req, res) {res.render('pages/index', {koikMatkad}) })
   .get('/uudised', function(req, res) {res.render('pages/uudised') })
   .get('/kontakt', function(req, res) {res.render('pages/kontakt') })
+  .get(`/matkajad/:matk`, matkaleRegistreerunud)
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
