@@ -1,69 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="klubi.css">
-        <title>Kontakt</title>
-    
-    </head>
-    
-    <body>
-        <div class="paiskonteiner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-4 logonimi">
-    
-                        <a class="navbar-brand" href="#">
-                            <img src="./Pildid/klubilogo.png" alt="logo" style="width:65px;">
-                        </a>
-                        <div class="nimi">MATKA KLUBI</div>
-                    </div>
-                    <div class="col-8 menyy">
-                        <ul class="nav justify-content-end">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">ESILEHT</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="uudised.html">UUDISED</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="kontakt.html">KONTAKT</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-    
-                <div class="kontakt">
-                    <form action="#" >
-                        <div class="form-group">
-                            <label for="name">Nimi:</label>
-                            <input type="text" class="form-control" placeholder="Sisesta nimi" id="nimi">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-posti address:</label>
-                            <input type="email" class="form-control" placeholder="Sisesta oma e-post" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="sonum">Sõnum:</label><br>
-                            <textarea name="sonum" rows="10" cols="40">
-                            </textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Saada</button>
-                    </form>
-                </div>
-                </div>
-            </div>
-    
-    
-        </div>
-    </body>
-    
-    </html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Matkaklubi - kontakt</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="klubi.css" />
+	</head>
+	<body>
+		<div class="container mt-4">
+			<div class="row menyyriba pt-6">
+				<div class="logo col-6">
+					<img class="klubilogo" src="/Pildid/klubilogo.png" alt="" />
+					<div class="klubinimi">Puhas Higi</div>
+				</div>
+				<%- include ("../partials/matkamenyy.ejs") %>
+			</div>
+			<h1 class="mt-3">Võta meiega ühendust</h1>
+			<div>
+				<form action="#">
+					<div class="form-group">
+
+
+						<label for="pwd">Sinu nimi:</label>
+						<input type="text" class="form-control" id="pwd" />
+					</div>
+					<div class="form-group">
+						<label for="email">Sinu emaili aaddress:</label>
+						<input type="email" class="form-control" id="email" />
+					</div>
+					<div class="form-group">
+						<label for="comment">Märkus:</label>
+						<textarea class="form-control" rows="5" id="comment"></textarea>
+					</div>
+					<button type="submit" class="btn btn-default">Saada</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,66 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Matkaklubi</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="/klubi.css">
-    </head>
-    <body>
-        <div class="paiskonteiner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-4 logonimi">
-                        <a class="navbar-brand" href="/">
-                            <img src="/Pildid/klubilogo.png" alt="logo" style="width:65px;">
-                        </a>
-                        <div class="nimi">MATKA KLUBI</div>
-                    </div> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matkaklubi</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/klubi.css">
+</head>
 
-                    <%- include ("../partials/matkamenyy.ejs") %>
-
+<body>
+    <div class="paiskonteiner">
+        <div class="container">
+            <div class="row menyyriba pt-6">
+                <div class="logo col-6">
+                    <img class="klubilogo" src="/Pildid/klubilogo.png" alt="" />
+                    <div class="klubinimi">Puhas Higi</div>
                 </div>
-                <div class="row tiitliriba">
-                    <div class="col-12 col-lg-6 pealkirjad">
-                        <div class="rida1 d-flex justify-content-between">
-                            <h2>Liiguta ennast</h2>
-                            <img class="liblikas1 img-fluid" src="./Pildid/Butterfly.png" alt="liblikas">
-                        </div>
-                        <div class="rida2 d-flex">
-                        <img class="liblikas2" src="/Pildid/Butterfly 1@2x.png" alt="liblikas">
+                <%- include ("../partials/matkamenyy.ejs") %>
+            </div>
+            <div class="row tiitliriba">
+                <div class="col-12 col-lg-6 pealkirjad">
+                    <div class="rida1 d-flex justify-content-between">
+                        <h2>Liiguta ennast</h2>
+                        <img class="liblikas1 img-fluid" src="/Pildid/Butterfly 1.png" alt="">
+                    </div>
+                    <div class="rida2 d-flex">
+                        <img class="liblikas2" src="/Pildid/Butterfly2.png" alt="">
                         <h1>Tule matkama</h1>
                     </div>
-                        <div class="rida3">
-                            <h3>Tule koos meiega seiklema</h3>
-                        </div>
-                        <a href="/kontakt" class="btn btn-dark" role="button">Võta ühendust</a>
+                    <div class="rida3">
+                        <h3>Tule koos meiega seiklema</h3>
                     </div>
-                    <div class="d-none d-lg-block col-lg-6 pealispilt">
-                        <img class="matkaja" src="/Pildid/Tydruk kotiga 1.png" alt="naine matkal">
-                        <img class="vari" src="/Pildid/Vari1.png" alt="vari">
-                    </div>
+                    <button class="nupp-paises">
+                        Võta ühendust
+                    </button>
+                </div>
+                <div class="d-none d-lg-block col-lg-6 pealispilt">
+                    <img class="matkaja" src="/Pildid/Tydruk kotiga 1.png" alt="">
+                    <img class="vari" src="/Pildid/Vari1.png" alt="">
                 </div>
             </div>
         </div>
-        <div class="container">
-            <h1>Matkade andmed</h1>
-            <div class="row">
-            <% for (let i = 0; i < koikMatkad.length; i++) {%>
-                <div class="card col-6 col-md-4 col-lg-3">
-                    <img class="card-img-top" src="<%= koikMatkad[i].pilt %>" alt="Card image">
-                    <div class="card-body">
-                    <h4 class="card-title"><%= koikMatkad[i].nimi %></h4>
-                    <p class="card-text"><%= koikMatkad[i].kirjeldus %></p>
-                    <a href="/registreerimine/<%= i %>" class="btn btn-primary">Registreeru</a>
-                    </div>
-                </div>    
-            <% } %>
-        </div>
-        </div>
-        </body>
-    </html>
+
+    </div>
+    <div class="container">
+        <h1>Matkade andmed</h1>
+        <div class="row">
+        <% for (let i = 0; i < koikMatkad.length; i++) {%>
+          <div class="card col-6 col-md-4 col-lg-3">
+            <img class="card-img-top" src="<%= koikMatkad[i].pilt %>" alt="Card image">
+            <div class="card-body">
+            <h4 class="card-title"><%= koikMatkad[i].nimi %></h4>
+            <p class="card-text"><%= koikMatkad[i].kirjeldus %></p>
+            <a href="/registreerimine/<%= i %>" class="btn btn-primary">Registreeru</a>
+            </div>
+        </div> 
+        <% } %>
+      </div>
+    </div>
+</body>
+
+</html>
