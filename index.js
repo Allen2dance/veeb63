@@ -20,11 +20,8 @@ let matkaAndmed3 = {
 }
 
 
-let koikMatkad = [
-  matkaAndmed1,
-  matkaAndmed2,
-  matkaAndmed3,
-  {
+. @@ -26,15 +29,52 @@ let koikMatkad = [
+    {
       nimi: "Jalgsimatk",
       kirjeldus: "Kõnnime iga päev vähemalt 10 kilomeetrit. Ja nii nädal otsa",
       pilt: "/Pildid/vihmaneTartu.jpg",

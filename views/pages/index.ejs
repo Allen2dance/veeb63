@@ -9,7 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="klubi.css">
+        <link rel="stylesheet" href="/klubi.css">
     </head>
     <body>
         <div class="paiskonteiner">
@@ -56,7 +56,7 @@
                     <div class="card-body">
                     <h4 class="card-title"><%= koikMatkad[i].nimi %></h4>
                     <p class="card-text"><%= koikMatkad[i].kirjeldus %></p>
-                    <a href="#" class="btn btn-primary">Registreeru</a>
+                    <a href="/registreerimine/<%= i %>" class="btn btn-primary">Registreeru</a>
                     </div>
                 </div>    
             <% } %>
