@@ -1,6 +1,10 @@
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000
+
 let matkaAndmed1 = {
   nimi: "Rabamatk",
-  kirjeldus: "Sulav asfalt voi lirtsuv maa",
+  kirjeldus: "Lirtsuv maa",
   pilt: "/Pildid/kirsipuud.jpg",
   registreerunud: []
 }
@@ -13,15 +17,16 @@ let matkaAndmed2 = {
 }
 
 let matkaAndmed3 = {
-  nimi: "Süstamatk",
+  nimi: "Süstamakt",
   kirjeldus: "Sõidame iga päev vähemalt 10 kilomeetrit. Ja nii nädal otsa",
-  pilt: "/Pildid/systamatk.jpg",
   registreerunud: []
 }
 
-
-. @@ -26,15 +29,52 @@ let koikMatkad = [
-    {
+let koikMatkad = [
+  matkaAndmed1, 
+  matkaAndmed2, 
+  matkaAndmed3,
+  {
       nimi: "Jalgsimatk",
       kirjeldus: "Kõnnime iga päev vähemalt 10 kilomeetrit. Ja nii nädal otsa",
       pilt: "/Pildid/vihmaneTartu.jpg",
@@ -50,15 +55,28 @@ function lisaMatkaja(req, res) {
     email: req.query.email,
   }
 
-  const matkaIndeks = req.query.matk
+  const matkaIndeks = parseInt(req.query.matk)
+
+  if ( matkaIndeks < 0 || matkaIndeks >= koikMatkad.length) {
+    return res.send(`Viga: matka indeks ${matkaIndeks} on vigane`);
+  }
+  
 
   const valitudMatk = koikMatkad[matkaIndeks]
   valitudMatk.registreerunud.push(registreerunu)
-
+  
   console.log('Lisatud matkaja:')
   console.log(valitudMatk)
 
-  res.send('Matk: ' + req.query.matk + ' email: ' + req.query.email)
+  return res.render(
+    'pages/kinnitus', 
+    { matk: valitudMatk, isikNimi: registreerunu.nimi }
+  );
+  
+}
+
+function matkaleRegistreerunud(req, res) {
+  res.send('mitte midagi')
 }
 
 express()
@@ -72,4 +90,5 @@ express()
   .get('/registreerimine/:matk', matkaleRegistreerumine)
   .get('/testnumber/:number', millineParameeter)
   .get('/lisaMatkaja', lisaMatkaja)
+  .get('/matkajad/:matk', matkaleRegistreerunud)
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
