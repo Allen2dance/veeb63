@@ -1,30 +1,33 @@
 let matkaAndmed1 = {
   nimi: "Rabamatk",
   kirjeldus: "Sulav asfalt voi lirtsuv maa",
-  pilt: "./Pildid/kirsipuud.jpg",
+  pilt: "/Pildid/kirsipuud.jpg",
   registreerunud: []
 }
 
 let matkaAndmed2 = {
   nimi: "Rattamatk",
   kirjeldus: "Väntame iga päev vähemalt 40 kilomeetrit. Ja nii nädal otsa",
-  pilt: "./Pildid/rattamatk2.jpg",
+  pilt: "/Pildid/rattamatk2.jpg",
   registreerunud: []
 }
 
 let matkaAndmed3 = {
-  nimi: "Süstamakt",
+  nimi: "Süstamatk",
   kirjeldus: "Sõidame iga päev vähemalt 10 kilomeetrit. Ja nii nädal otsa",
-  pilt: "./Pildid/systamatk.jpg",
+  pilt: "/Pildid/systamatk.jpg",
   registreerunud: []
 }
 
+
 let koikMatkad = [
-	@@ -26,15 +29,52 @@ let koikMatkad = [
+  matkaAndmed1,
+  matkaAndmed2,
+  matkaAndmed3,
   {
       nimi: "Jalgsimatk",
       kirjeldus: "Kõnnime iga päev vähemalt 10 kilomeetrit. Ja nii nädal otsa",
-      pilt: "./Pildid/vihmaneTartu.jpg",
+      pilt: "/Pildid/vihmaneTartu.jpg",
       registreerunud: []
   }
 ]
