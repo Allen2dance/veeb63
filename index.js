@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 5000
 
 let matkaAndmed1 = {
   nimi: "Rabamatk",
-  kirjeldus: "Dlasdfld asdlfasdl falsdkfj aldkjfadfasdfjadlfkasdlf",
+  kirjeldus: "Oitsevad kirsid rabas",
   pilt: "/Pildid/kirsipuud.jpg",
   registreerunud: []
 }
