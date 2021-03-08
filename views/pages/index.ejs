@@ -11,14 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/klubi.css">
 </head>
-
 <body>
     <div class="paiskonteiner">
         <div class="container">
-            <div class="row menyyriba pt-6">
-                <div class="logo col-6">
-                    <img class="klubilogo" src="/Pildid/klubilogo.png" alt="" />
-                    <div class="klubinimi">MATKA KLUBI</div>
+            <div class="row">
+                <div class="col-4 logonimi">
+                    <a class="navbar-brand" href="#">
+                        <img src="/Pildid/klubilogo.png" alt="logo" style="width:65px;">
+                    </a>
+                    <div class="nimi">MATKA KLUBI</div>
                 </div>
                 <%- include ("../partials/matkamenyy.ejs") %>
             </div>
