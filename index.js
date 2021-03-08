@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 5000
 
 let matkaAndmed1 = {
   nimi: "Rabamatk",
-  kirjeldus: "Lirtsuv maa",
+  kirjeldus: "Dlasdfld asdlfasdl falsdkfj aldkjfadfasdfjadlfkasdlf",
   pilt: "/Pildid/kirsipuud.jpg",
   registreerunud: []
 }
@@ -19,7 +19,7 @@ let matkaAndmed2 = {
 let matkaAndmed3 = {
   nimi: "Süstamakt",
   kirjeldus: "Sõidame iga päev vähemalt 10 kilomeetrit. Ja nii nädal otsa",
-  pilt: "/Pildid/systamatk.jpg",
+  pilt: "/Pildid/systamtk.jpg",
   registreerunud: []
 }
 
@@ -56,28 +56,15 @@ function lisaMatkaja(req, res) {
     email: req.query.email,
   }
 
-  const matkaIndeks = parseInt(req.query.matk)
-
-  if ( matkaIndeks < 0 || matkaIndeks >= koikMatkad.length) {
-    return res.send(`Viga: matka indeks ${matkaIndeks} on vigane`);
-  }
-  
+  const matkaIndeks = req.query.matk
 
   const valitudMatk = koikMatkad[matkaIndeks]
   valitudMatk.registreerunud.push(registreerunu)
-  
+
   console.log('Lisatud matkaja:')
   console.log(valitudMatk)
 
-  return res.render(
-    'pages/kinnitus', 
-    { matk: valitudMatk, isikNimi: registreerunu.nimi }
-  );
-  
-}
-
-function matkaleRegistreerunud(req, res) {
-  res.send('mitte midagi')
+  res.send('Matk: ' + req.query.matk + ' email: ' + req.query.email)
 }
 
 express()
@@ -91,5 +78,4 @@ express()
   .get('/registreerimine/:matk', matkaleRegistreerumine)
   .get('/testnumber/:number', millineParameeter)
   .get('/lisaMatkaja', lisaMatkaja)
-  .get('/matkajad/:matk', matkaleRegistreerunud)
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))

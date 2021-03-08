@@ -1,5 +1,5 @@
 .paiskonteiner{
-    background: transparent url('Pildid/Hills.png') 0% 0% no-repeat padding-box;
+background: transparent url('Pildid/Hills.png') 0% 0% no-repeat padding-box;
 background: transparent, 0.19;
 width: 100%;
 height: 778px;
@@ -30,8 +30,7 @@ li a {
     justify-content: center;
     align-items: center;
     margin-left: -80px;
-   
-}
+ }
 .nimi{
     font-weight: 800;
     font-size: 33px;
@@ -40,8 +39,7 @@ li a {
     color: black;
     line-height: 35px;
     max-width: 126px;
- 
-}
+ }
 .pealkirjad{
     padding-top: 231px;
     text-transform: uppercase;
