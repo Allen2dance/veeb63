@@ -19,7 +19,7 @@ let matkaAndmed2 = {
 let matkaAndmed3 = {
   nimi: "Süstamakt",
   kirjeldus: "Sõidame iga päev vähemalt 10 kilomeetrit. Ja nii nädal otsa",
-  pilt: "/Pildid/systamtk.jpg",
+  pilt: "/Pildid/systamatk.jpg",
   registreerunud: []
 }
 
