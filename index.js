@@ -1,6 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
 const salas6na = "KalaSuppG0";
-const andmebaas = "veebmtest"; // <= Pane X asemel siia enda number
+const andmebaas = "veeb63"; // <= Pane X asemel siia enda number
 const uri = `mongodb+srv://veebg0:${salas6na}@cluster0.qz3rv.mongodb.net/${andmebaas}?retryWrites=true&w=majority`;
 
 const express = require('express')
