@@ -61,26 +61,86 @@ function lisaMatkaja(req, res) {
     email: req.query.email,
   }
 
-  const matkaIndeks = req.query.matk
+  const matkaIndeks = parseInt(req.query.matk)
+
+  if ( matkaIndeks < 0 || matkaIndeks >= koikMatkad.length) {
+    return res.send(`Viga: matka indeks ${matkaIndeks} on vigane`);
+  }
 
   const valitudMatk = koikMatkad[matkaIndeks]
   valitudMatk.registreerunud.push(registreerunu)
 
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, });
+  
+  client.connect((err) => {
+    if (err) {
+      return res.send( {error: `Viga andmebaasiga ühendumisel: ` + err.message})
+    }
+
+  const collection = client
+       .db(andmebaas)
+       .collection("matkaklubi_" + andmebaas + "_registreerumised");
+       registreerunu.matk = matkaIndeks
+      
+  collection.insertOne(registreerunu, (err) => {
+   client.close()
+    if (err) {
+       return res.send({error: `Matkaja andmete salvestamine ebaonnestus: ` + err.message})
+         }
+
+         return res.sender(
+           `pages/kinnitus`,
+           { matk: valitudMatk, isikNimi: registreerunu.nimi }
+         );
+       })
+
+  })
+
   console.log('Lisatud matkaja:')
   console.log(valitudMatk)
-
-  res.send('Matk: ' + req.query.matk + ' email: ' + req.query.email)
 }
 
+function matkaleRegistreerunud(req, res) {
+  const matkaIndeks = parseInt(req.params.matk)
+  if ( matkaIndeks < 0 || matkaIndeks >= koikMatkad.length) {
+    return res.send({error: `Matka indeks ` + matkaIndeks + ` ei ole õige`});
+  }
+
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  client.connect((err) => {
+    if (err) {
+      return res.send({error: 'Viga andmebaasiga ühendumisel: ' + err.message})
+    }
+
+    const collection = client
+    .db(andmebaas)
+    .collection("matkaklubi_" + andmebaas + "_registreerumised");
+
+    collection.find({matk: matkaIndeks}).toArray((err, registreerumised) => {
+      if (err) {
+        return res.send({error: 'Viga andmete lugemiseks: ' + err.message})
+      }
+
+      const valitudMatk = koikMatkad[matkaIndeks]
+      valitudMatk.registreerunud = registreerumised
+      return res.send(valitudMatk);
+    } )
+
+  })
+  
+}   
+
+
 express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index', {koikMatkad}))
-  .get('/uudised', function(req, res) { return res.render('pages/uudised') })
-  .get('/kontakt', function(req, res) { return res.render('pages/kontakt') })
-  .get('/registreerimine', function(req, res) { return res.render('pages/registreeru') })
-  .get('/registreerimine/:matk', matkaleRegistreerumine)
-  .get('/testnumber/:number', millineParameeter)
-  .get('/lisaMatkaja', lisaMatkaja)
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+.use(express.static(path.join(__dirname, 'public')))
+.set('views', path.join(__dirname, 'views'))
+.set('view engine', 'ejs')
+.get('/', (req, res) => res.render('pages/index', {koikMatkad}))
+.get('/uudised', function(req, res) { return res.render('pages/uudised') })
+.get('/kontakt', function(req, res) { return res.render('pages/kontakt') })
+.get('/registreerimine', function(req, res) { return res.render('pages/registreeru') })
+.get('/registreerimine/:matk', matkaleRegistreerumine)
+.get('/testnumber/:number', millineParameeter)
+.get('/lisaMatkaja', lisaMatkaja)
+.get('/api/matkajad/:matk', matkaleRegistreerunud)
+.listen(PORT, () => console.log(`Listening on ${ PORT }`))
