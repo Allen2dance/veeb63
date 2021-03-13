@@ -6,7 +6,7 @@ document.querySelector('#matkajad').innerHTML = "<div>loen andmeid ... </div>"
 var settings = {
     async: true,
     crossDomain: true,
-    url: '/api/matkajad/2',
+    url: '/api/matkajad/',
     method: 'GET',
     headers: {},
 };
